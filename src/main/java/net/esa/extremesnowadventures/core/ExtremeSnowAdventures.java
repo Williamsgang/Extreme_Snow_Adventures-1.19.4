@@ -1,6 +1,10 @@
-package net.esa.extremesnowadventures;
+package net.esa.extremesnowadventures.core;
 
 import com.mojang.logging.LogUtils;
+import net.esa.extremesnowadventures.items.ModCreativeModTabs;
+import net.esa.extremesnowadventures.items.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -39,9 +43,12 @@ public class ExtremeSnowAdventures
 
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event)
-    {
-
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeModTabs.ESA_ITEM_TAB) {
+            event.accept(ModItems.HOT_COCOA);
+            event.accept(ModItems.WHITE_PROCESSED_WOOL);
+            event.accept(ModItems.RED_PROCESSED_WOOL);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

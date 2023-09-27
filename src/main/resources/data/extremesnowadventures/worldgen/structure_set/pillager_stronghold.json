@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "extremesnowadventures:pillager_stronghold",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1234567,
+    "spacing": 16,
+    "separation": 2,
+    "type": "minecraft:random_spread"
+  }
+}
