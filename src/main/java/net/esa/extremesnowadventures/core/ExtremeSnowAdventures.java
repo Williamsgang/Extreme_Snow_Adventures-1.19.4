@@ -1,10 +1,9 @@
 package net.esa.extremesnowadventures.core;
 
 import com.mojang.logging.LogUtils;
-import net.esa.extremesnowadventures.items.ModCreativeModTabs;
+
+import net.esa.extremesnowadventures.items.ModCreativeTab;
 import net.esa.extremesnowadventures.items.ModItems;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -30,6 +29,8 @@ public class ExtremeSnowAdventures
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        // Register the ModItems
+        ModItems.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -44,10 +45,9 @@ public class ExtremeSnowAdventures
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == ModCreativeModTabs.ESA_ITEM_TAB) {
-            event.accept(ModItems.HOT_COCOA);
-            event.accept(ModItems.WHITE_PROCESSED_WOOL);
+        if (event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
             event.accept(ModItems.RED_PROCESSED_WOOL);
+            event.accept(ModItems.WHITE_PROCESSED_WOOL);
         }
     }
 

@@ -11,9 +11,9 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ExtremeSnowAdventures.MOD_ID);
 
-    public static final RegistryObject<Item> WHITE_PROCESSED_WOOL = ITEMS.register("white_processed_wool",
+    public static final RegistryObject<Item> WHITE_PROCESSED_WOOL = ITEMS.register("whiteprocessedwool",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RED_PROCESSED_WOOL = ITEMS.register("red_processed_wool",
+    public static final RegistryObject<Item> RED_PROCESSED_WOOL = ITEMS.register("redprocessedwool",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HOT_COCOA = ITEMS.register("hot_cocoa",
             () -> new HotCocoa());

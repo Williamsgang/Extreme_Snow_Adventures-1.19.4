@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "extremesnowadventures:the_north",
-  "features": "extremesnowadventures:pillager_stronghold",
-  "step": "surface_structures"
-}

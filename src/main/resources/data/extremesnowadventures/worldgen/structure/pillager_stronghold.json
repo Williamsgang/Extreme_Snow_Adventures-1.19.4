@@ -1,6 +1,6 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": ["extremesnowadventures:the_north"],
+  "biomes": "#extremesnowadventures:has_structure/pillager_stronghold",
   "step": "surface_structures",
   "spawn_overrides": {},
   "start_pool": "extremesnowadventures:pillager_stronghold",
