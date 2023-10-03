@@ -1,1 +1,11 @@
-{"values": ["extremesnowadventures:the_north","minecraft:taiga"]}
+{
+  "replace": "false",
+
+  "_comment": "This biome tag can specify the biome directly.",
+  "values": [
+    "#minecraft:is_taiga",
+    "#minecraft:is_forest",
+    "minecraft:taiga",
+    "minecraft:"
+  ]
+}
