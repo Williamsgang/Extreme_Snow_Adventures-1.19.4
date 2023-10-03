@@ -48,6 +48,7 @@ public class ExtremeSnowAdventures
         if (event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
             event.accept(ModItems.RED_PROCESSED_WOOL);
             event.accept(ModItems.WHITE_PROCESSED_WOOL);
+            event.accept(ModItems.HOT_COCOA);
         }
     }
 
