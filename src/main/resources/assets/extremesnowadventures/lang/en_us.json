@@ -5,5 +5,10 @@
 
   "items.extremesnowadventures.white_processed_wool": "White Processed Wool",
   "items.extremesnowadventures.red_processed_wool": "Red Processed Wool",
-  "items.extremesnowadventures.hot_cocoa": "Hot Cocoa"
+  "items.extremesnowadventures.hot_cocoa": "Hot Cocoa",
+  "item.minecraft.tipped_arrow.effect.glass_of_water": "Arrow of Hydration",
+  "item.minecraft.splash_potion.effect.glass_of_water": "Splash Potion of Hydration",
+  "item.minecraft.lingering_potion.effect.glass_of_water": "Lingering Potion of Hydration",
+  "effect.extremesnowadventures.water_effect": "Hydration",
+  "item.minecraft.potion.effect.glass_of_water": "Drinking Water"
 }
