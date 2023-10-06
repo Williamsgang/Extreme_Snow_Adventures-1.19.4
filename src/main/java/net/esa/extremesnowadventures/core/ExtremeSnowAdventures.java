@@ -35,8 +35,7 @@ import java.util.function.Supplier;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ExtremeSnowAdventures.MOD_ID)
-public class ExtremeSnowAdventures
-{
+public class ExtremeSnowAdventures {
     public static final String MOD_ID = "extremesnowadventures";
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -64,14 +63,16 @@ public class ExtremeSnowAdventures
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-
     }
 
     private static final String PROTOCOL_VERSION = "1";
-    public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
+    public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(
+            new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals,
+            PROTOCOL_VERSION::equals);
     private static int messageID = 0;
 
-    public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
+    public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder,
+            Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
         PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
         messageID++;
     }
@@ -96,13 +97,12 @@ public class ExtremeSnowAdventures
         }
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
+        if (event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
             event.accept(ModItems.HOT_COCOA);
             event.accept(ModItems.WHITE_PROCESSED_WOOL);
             event.accept(ModItems.RED_PROCESSED_WOOL);
@@ -111,18 +111,16 @@ public class ExtremeSnowAdventures
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
 
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    // You can use EventBusSubscriber to automatically register all static methods
+    // in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
     }

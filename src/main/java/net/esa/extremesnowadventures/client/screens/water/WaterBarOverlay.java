@@ -16,7 +16,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber({Dist.CLIENT})
+@Mod.EventBusSubscriber({ Dist.CLIENT })
 public class WaterBarOverlay {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void eventHandler(RenderGuiEvent.Pre event) {
@@ -36,7 +36,9 @@ public class WaterBarOverlay {
             RenderSystem.depthMask(false);
             RenderSystem.enableBlend();
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+            RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA,
+                    GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE,
+                    GlStateManager.DestFactor.ZERO);
             RenderSystem.setShaderColor(1, 1, 1, 1);
 
             for (int i = 0; i <= 10; i++) {

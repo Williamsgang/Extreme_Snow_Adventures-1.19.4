@@ -8,7 +8,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.item.alchemy.Potion;
 
 public class ModPotions {
-    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, ExtremeSnowAdventures.MOD_ID);
+    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS,
+            ExtremeSnowAdventures.MOD_ID);
     public static final RegistryObject<Potion> GLASS_OF_WATER = POTIONS.register("glass_of_water", () -> new Potion());
-    public static void register(IEventBus eventBus) { POTIONS.register(eventBus);}
+
+    public static void register(IEventBus eventBus) {
+        POTIONS.register(eventBus);
+    }
 }
