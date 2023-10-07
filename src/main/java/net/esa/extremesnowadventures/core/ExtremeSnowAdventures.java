@@ -103,9 +103,22 @@ public class ExtremeSnowAdventures {
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
-            event.accept(ModItems.HOT_COCOA);
-            event.accept(ModItems.WHITE_PROCESSED_WOOL);
+            event.accept(ModItems.BLUE_PROCESSED_WOOL);
+            event.accept(ModItems.BLACK_PROCESSED_WOOL);
+            event.accept(ModItems.BROWN_PROCESSED_WOOL);
+            event.accept(ModItems.CYAN_PROCESSED_WOOL);
+            event.accept(ModItems.GRAY_PROCESSED_WOOL);
+            event.accept(ModItems.GREEN_PROCESSED_WOOL);
+            event.accept(ModItems.LIGHT_BLUE_PROCESSED_WOOL);
+            event.accept(ModItems.LIGHT_GRAY_PROCESSED_WOOL);
+            event.accept(ModItems.LIGHT_PINK_PROCESSED_WOOL);
+            event.accept(ModItems.LIME_PROCESSED_WOOL);
+            event.accept(ModItems.MAGENTA_PROCESSED_WOOL);
+            event.accept(ModItems.ORANGE_PROCESSED_WOOL);
+            event.accept(ModItems.PURPLE_PROCESSED_WOOL);
             event.accept(ModItems.RED_PROCESSED_WOOL);
+            event.accept(ModItems.WHITE_PROCESSED_WOOL);
+            event.accept(ModItems.YELLOW_PROCESSED_WOOL);
         }
     }
 

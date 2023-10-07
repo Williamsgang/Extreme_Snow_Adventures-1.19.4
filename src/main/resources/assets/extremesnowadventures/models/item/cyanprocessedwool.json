@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extremesnowadventures:item/redprocessedwool"
+    "layer0": "extremesnowadventures:item/cyanprocessedwool"
   }
 }

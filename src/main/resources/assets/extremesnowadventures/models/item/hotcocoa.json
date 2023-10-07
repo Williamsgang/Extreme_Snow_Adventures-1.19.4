@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extremesnowadventures:item/hot_cocoa"
+    "layer0": "extremesnowadventures:item/hotcocoa"
   }
 }
