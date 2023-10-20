@@ -19,10 +19,17 @@
   "item.extremesnowadventures.redprocessedwool": "Red Processed Wool",
   "item.extremesnowadventures.whiteprocessedwool": "White Processed Wool",
   "item.extremesnowadventures.yellowprocessedwool": "Yellow Processed Wool",
+
   "item.extremesnowadventures.hotcocoa": "Hot Cocoa",
+
   "item.minecraft.tipped_arrow.effect.glass_of_water": "Arrow of Hydration",
   "item.minecraft.splash_potion.effect.glass_of_water": "Splash Potion of Hydration",
   "item.minecraft.lingering_potion.effect.glass_of_water": "Lingering Potion of Hydration",
   "effect.extremesnowadventures.water_effect": "Hydration",
-  "item.minecraft.potion.effect.glass_of_water": "Drinking Water"
+  "item.minecraft.potion.effect.glass_of_water": "Drinking Water",
+
+  "item.extremesnowadventures.whitewintercap": "White Winter Cap",
+  "item.extremesnowadventures.whitewintercoat": "White Winter Coat",
+  "item.extremesnowadventures.whitewinterpants": "White Winter Pants",
+  "item.extremesnowadventures.whitewinterboots": "White Winter Boots"
 }

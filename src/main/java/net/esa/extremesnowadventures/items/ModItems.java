@@ -1,6 +1,7 @@
 package net.esa.extremesnowadventures.items;
 
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,6 +46,15 @@ public class ModItems {
                         () -> new Item(new Item.Properties()));
 
         public static final RegistryObject<Item> HOT_COCOA = ITEMS.register("hotcocoa", () -> new HotCocoa());
+
+        public static final RegistryObject<Item> WHITE_WINTER_CAP = ITEMS.register("whitewintercap",
+                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.HELMET, new Item.Properties()));
+        public static final RegistryObject<Item> WHITE_WINTER_COAT = ITEMS.register("whitewintercoat",
+                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+        public static final RegistryObject<Item> WHITE_WINTER_PANTS = ITEMS.register("whitewinterpants",
+                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+        public static final RegistryObject<Item> WHITE_WINTER_BOOTS = ITEMS.register("whitewinterboots",
+                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
         public static void register(IEventBus eventBus) {
                 ITEMS.register(eventBus);

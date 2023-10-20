@@ -2,10 +2,14 @@ package net.esa.extremesnowadventures.core;
 
 import com.mojang.logging.LogUtils;
 import net.esa.extremesnowadventures.blocks.ModBlocks;
+import net.esa.extremesnowadventures.entity.ModEntities;
+import net.esa.extremesnowadventures.entity.rendering.FluffyRenderer;
+import net.esa.extremesnowadventures.entity.rendering.YetiRenderer;
 import net.esa.extremesnowadventures.init.ModMobEffects;
 import net.esa.extremesnowadventures.init.ModPotions;
 import net.esa.extremesnowadventures.items.ModCreativeTab;
 import net.esa.extremesnowadventures.items.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,6 +37,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static net.esa.extremesnowadventures.entity.ModEntities.*;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ExtremeSnowAdventures.MOD_ID)
 public class ExtremeSnowAdventures {
@@ -56,6 +62,9 @@ public class ExtremeSnowAdventures {
 
         // Register potions
         ModPotions.register(modEventBus);
+
+        //Registers mob
+        register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -119,6 +128,11 @@ public class ExtremeSnowAdventures {
             event.accept(ModItems.RED_PROCESSED_WOOL);
             event.accept(ModItems.WHITE_PROCESSED_WOOL);
             event.accept(ModItems.YELLOW_PROCESSED_WOOL);
+            event.accept(ModItems.HOT_COCOA);
+            event.accept(ModItems.WHITE_WINTER_CAP);
+            event.accept(ModItems.WHITE_WINTER_COAT);
+            event.accept(ModItems.WHITE_WINTER_PANTS);
+            event.accept(ModItems.WHITE_WINTER_BOOTS);
         }
     }
 
@@ -134,7 +148,8 @@ public class ExtremeSnowAdventures {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(YETI.get(), YetiRenderer::new);
+            EntityRenderers.register(FLUFFY.get(), FluffyRenderer::new);
         }
     }
 }
