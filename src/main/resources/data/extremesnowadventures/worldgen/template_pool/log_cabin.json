@@ -1,11 +1,11 @@
 {
-  "name": "extremesnowadventures:pillager_stronghold",
+  "name": "extremesnowadventures:log_cabin",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 50,
+      "weight": 10,
       "element": {
-        "location": "extremesnowadventures:pillager_stronghold",
+        "location": "extremesnowadventures:log_cabin",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

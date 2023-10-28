@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "extremesnowadventures:log_cabin",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "salt": 456981,
+    "spacing": 64,
+    "separation": 16,
+    "type": "minecraft:random_spread"
+  }
+}

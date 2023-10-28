@@ -1,7 +1,7 @@
 package net.esa.extremesnowadventures.recipes.brewing;
 
 /* imports omitted */
-import net.esa.extremesnowadventures.items.ModItems;
+import net.esa.extremesnowadventures.init.ModItems;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;

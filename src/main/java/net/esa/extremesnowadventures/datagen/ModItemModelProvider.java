@@ -1,7 +1,7 @@
 package net.esa.extremesnowadventures.datagen;
 
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
-import net.esa.extremesnowadventures.items.ModItems;
+import net.esa.extremesnowadventures.init.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

@@ -1,14 +1,13 @@
 package net.esa.extremesnowadventures.core;
 
 import com.mojang.logging.LogUtils;
-import net.esa.extremesnowadventures.blocks.ModBlocks;
-import net.esa.extremesnowadventures.entity.ModEntities;
+import net.esa.extremesnowadventures.init.ModBlocks;
 import net.esa.extremesnowadventures.entity.rendering.FluffyRenderer;
 import net.esa.extremesnowadventures.entity.rendering.YetiRenderer;
 import net.esa.extremesnowadventures.init.ModMobEffects;
 import net.esa.extremesnowadventures.init.ModPotions;
-import net.esa.extremesnowadventures.items.ModCreativeTab;
-import net.esa.extremesnowadventures.items.ModItems;
+import net.esa.extremesnowadventures.init.ModCreativeTab;
+import net.esa.extremesnowadventures.init.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -129,10 +128,11 @@ public class ExtremeSnowAdventures {
             event.accept(ModItems.WHITE_PROCESSED_WOOL);
             event.accept(ModItems.YELLOW_PROCESSED_WOOL);
             event.accept(ModItems.HOT_COCOA);
-            event.accept(ModItems.WHITE_WINTER_CAP);
-            event.accept(ModItems.WHITE_WINTER_COAT);
-            event.accept(ModItems.WHITE_WINTER_PANTS);
-            event.accept(ModItems.WHITE_WINTER_BOOTS);
+            event.accept(ModItems.WINTER_HELMET);
+            event.accept(ModItems.WINTER_CHESTPLATE);
+            event.accept(ModItems.WINTER_LEGGINGS);
+            event.accept(ModItems.WINTER_BOOTS);
+            event.accept(ModBlocks.SNOWY_DIRT_BLOCK);
         }
     }
 

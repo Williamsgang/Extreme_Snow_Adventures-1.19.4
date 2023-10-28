@@ -85,7 +85,7 @@ public class FluffyEntity extends Monster {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 500.0D)
                 .add(Attributes.FOLLOW_RANGE, 10.0D)
-                .add(Attributes.MOVEMENT_SPEED, (double) 0.2F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.25D)
                 .add(Attributes.ATTACK_DAMAGE, 40.0D);

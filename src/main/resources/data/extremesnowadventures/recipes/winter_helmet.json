@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:leather_helmet"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "extremesnowadventures:blueprocessedwool"
+    }
+  ],
+  "result": {
+    "item": "extremesnowadventures:winter_helmet",
+    "count": 1
+  }
+}

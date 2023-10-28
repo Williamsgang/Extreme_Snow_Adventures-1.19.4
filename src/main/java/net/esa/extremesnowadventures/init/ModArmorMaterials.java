@@ -1,4 +1,4 @@
-package net.esa.extremesnowadventures.items;
+package net.esa.extremesnowadventures.init;
 
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
 import net.minecraft.sounds.SoundEvent;
@@ -10,8 +10,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    WHITE_PROCESSED_WOOL("whiteprocessedwool", 15, new int[]{5, 7, 5, 4 }, 12,
-            SoundEvents.ARMOR_EQUIP_LEATHER, 1f, 0f, () -> Ingredient.of(ModItems.WHITE_PROCESSED_WOOL.get()));
+    BLUE_PROCESSED_WOOL("blueprocessedwool", 15, new int[]{5, 7, 5, 4 }, 12,
+            SoundEvents.ARMOR_EQUIP_LEATHER, 1f, 0f, () -> Ingredient.of(ModItems.BLUE_PROCESSED_WOOL.get()));
 
     private final String name;
     private final int durabilityMultiplier;
@@ -19,19 +19,19 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final int enchantmentValue;
     private final SoundEvent equipSound;
     private final float toughness;
-    private final float knockbakcResistance;
+    private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredient;
 
-    private static final int[] BASE_DURABILITY = { 11, 16, 16, 13};
+    private static final int[] BASE_DURABILITY = { 11, 16, 16, 13 };
 
-    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantmentValue, SoundEvent equipSound, float toughness, float knockbakcResistance, Supplier<Ingredient> repairIngredient) {
+    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantmentValue, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
         this.enchantmentValue = enchantmentValue;
         this.equipSound = equipSound;
         this.toughness = toughness;
-        this.knockbakcResistance = knockbakcResistance;
+        this.knockbackResistance = knockbackResistance;
         this.repairIngredient = repairIngredient;
     }
 
@@ -76,6 +76,6 @@ public enum ModArmorMaterials implements ArmorMaterial {
      */
     @Override
     public float getKnockbackResistance() {
-        return this.knockbakcResistance;
+        return this.knockbackResistance;
     }
 }

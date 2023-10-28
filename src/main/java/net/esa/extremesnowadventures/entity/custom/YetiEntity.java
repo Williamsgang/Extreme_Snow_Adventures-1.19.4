@@ -78,14 +78,14 @@ public class YetiEntity extends Monster {
 				new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true, (p_199899_) -> {
 					return !p_199899_.isBaby();
 				}));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, true));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes()
 				.add(Attributes.MAX_HEALTH, 250.0D)
 				.add(Attributes.FOLLOW_RANGE, 10.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.1F)
+				.add(Attributes.MOVEMENT_SPEED, 0.2F)
 				.add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
 				.add(Attributes.ATTACK_KNOCKBACK, 1.25D)
 				.add(Attributes.ATTACK_DAMAGE, 20.0D);

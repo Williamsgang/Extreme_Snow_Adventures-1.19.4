@@ -14,7 +14,7 @@ import net.minecraft.core.BlockPos;
 import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber
-public class BodyTempDisplayOverlayIngameProcedure {
+public class BodyTempDisplayOverlayProcedure {
 	@SubscribeEvent
 	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		if (event.phase == TickEvent.Phase.END) {

@@ -1,12 +1,10 @@
-package net.esa.extremesnowadventures.blocks;
+package net.esa.extremesnowadventures.init;
 
+import net.esa.extremesnowadventures.common.block.SnowyDirtBlock;
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
-import net.esa.extremesnowadventures.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,7 +17,7 @@ public class ModBlocks {
             ExtremeSnowAdventures.MOD_ID);
 
     public static final RegistryObject<Block> SNOWY_DIRT_BLOCK = registerBlock("snowy_dirt_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT)));
+            () -> new SnowyDirtBlock());
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

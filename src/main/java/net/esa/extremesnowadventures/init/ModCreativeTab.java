@@ -1,4 +1,4 @@
-package net.esa.extremesnowadventures.items;
+package net.esa.extremesnowadventures.init;
 
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
 import net.minecraft.network.chat.Component;

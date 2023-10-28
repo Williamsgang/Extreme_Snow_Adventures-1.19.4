@@ -3,6 +3,7 @@ package net.esa.extremesnowadventures.client.screens.cold;
 
 import net.esa.extremesnowadventures.procedures.BodyTempCold1DisplayProcedure;
 
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -45,34 +46,34 @@ public class BodyTempCold1Overlay {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		if (BodyTempCold1DisplayProcedure.execute(entity)) {
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
 
 			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			Minecraft.getInstance().gui.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+			GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
 
 		}
 		RenderSystem.depthMask(true);

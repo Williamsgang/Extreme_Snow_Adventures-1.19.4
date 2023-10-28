@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:leather_chestplate"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "extremesnowadventures:blueprocessedwool"
+    }
+  ],
+  "result": {
+    "item": "extremesnowadventure:winter_chestplate",
+    "count": 1
+  }
+}

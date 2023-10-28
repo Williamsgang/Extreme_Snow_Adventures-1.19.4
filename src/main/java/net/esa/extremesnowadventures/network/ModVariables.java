@@ -45,26 +45,26 @@ public class ModVariables {
         @SubscribeEvent
         public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
             if (!event.getEntity().level.isClientSide())
-                ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+                event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
         }
 
         @SubscribeEvent
         public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
             if (!event.getEntity().level.isClientSide())
-                ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+                event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
         }
 
         @SubscribeEvent
         public static void onPlayerChangedDimensionSyncPlayerVariables(PlayerEvent.PlayerChangedDimensionEvent event) {
             if (!event.getEntity().level.isClientSide())
-                ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables())).syncPlayerVariables(event.getEntity());
+                event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()).syncPlayerVariables(event.getEntity());
         }
 
         @SubscribeEvent
         public static void clonePlayer(PlayerEvent.Clone event) {
             event.getOriginal().revive();
-            PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
-            PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
+            PlayerVariables original = event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
+            PlayerVariables clone = event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
             if (!event.isWasDeath()) {
                 clone.water_bar = original.water_bar;
                 clone.body_temp = original.body_temp;
@@ -80,7 +80,7 @@ public class ModVariables {
         @SubscribeEvent
         public static void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
             if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer))
-                event.addCapability(new ResourceLocation("pjibby", "player_variables"), new PlayerVariablesProvider());
+                event.addCapability(new ResourceLocation("extremesnowadventures", "player_variables"), new PlayerVariablesProvider());
         }
 
         private final PlayerVariables playerVariables = new PlayerVariables();
@@ -145,7 +145,7 @@ public class ModVariables {
             NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
                 if (!context.getDirection().getReceptionSide().isServer()) {
-                    PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
+                    PlayerVariables variables = Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
                     variables.water_bar = message.data.water_bar;
                     variables.body_temp = message.data.body_temp;
                 }

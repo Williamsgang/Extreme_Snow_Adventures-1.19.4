@@ -1,7 +1,8 @@
-package net.esa.extremesnowadventures.items;
+package net.esa.extremesnowadventures.init;
 
 import net.esa.extremesnowadventures.core.ExtremeSnowAdventures;
-import net.minecraft.world.item.ArmorItem;
+import net.esa.extremesnowadventures.common.item.HotCocoaItem;
+import net.esa.extremesnowadventures.common.armor.WinterGearArmor;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,16 +46,16 @@ public class ModItems {
         public static final RegistryObject<Item> YELLOW_PROCESSED_WOOL = ITEMS.register("yellowprocessedwool",
                         () -> new Item(new Item.Properties()));
 
-        public static final RegistryObject<Item> HOT_COCOA = ITEMS.register("hotcocoa", () -> new HotCocoa());
+        public static final RegistryObject<Item> HOT_COCOA = ITEMS.register("hotcocoa", () -> new HotCocoaItem());
 
-        public static final RegistryObject<Item> WHITE_WINTER_CAP = ITEMS.register("whitewintercap",
-                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.HELMET, new Item.Properties()));
-        public static final RegistryObject<Item> WHITE_WINTER_COAT = ITEMS.register("whitewintercoat",
-                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-        public static final RegistryObject<Item> WHITE_WINTER_PANTS = ITEMS.register("whitewinterpants",
-                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-        public static final RegistryObject<Item> WHITE_WINTER_BOOTS = ITEMS.register("whitewinterboots",
-                () -> new ArmorItem(ModArmorMaterials.WHITE_PROCESSED_WOOL, ArmorItem.Type.BOOTS, new Item.Properties()));
+        public static final RegistryObject<Item> WINTER_HELMET = ITEMS.register("winter_helmet",
+                () -> new WinterGearArmor.Helmet());
+        public static final RegistryObject<Item> WINTER_CHESTPLATE = ITEMS.register("winter_chestplate",
+                () -> new WinterGearArmor.Chestplate());
+        public static final RegistryObject<Item> WINTER_LEGGINGS = ITEMS.register("winter_leggings",
+                () -> new WinterGearArmor.Leggings());
+        public static final RegistryObject<Item> WINTER_BOOTS = ITEMS.register("winter_boots",
+                () -> new WinterGearArmor.Boots());
 
         public static void register(IEventBus eventBus) {
                 ITEMS.register(eventBus);

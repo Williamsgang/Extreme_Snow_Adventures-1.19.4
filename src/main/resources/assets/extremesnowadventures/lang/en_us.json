@@ -1,6 +1,8 @@
 {
   "biome.extremesnowadventures.the_north": "The North",
 
+  "block.extremesnowadventures.snowy_dirt_block": "Snowy Dirt Block",
+
   "creativemodetab.item_tab": "ESA Items",
 
   "item.extremesnowadventures.blackprocessedwool": "Black Processed Wool",
@@ -28,8 +30,8 @@
   "effect.extremesnowadventures.water_effect": "Hydration",
   "item.minecraft.potion.effect.glass_of_water": "Drinking Water",
 
-  "item.extremesnowadventures.whitewintercap": "White Winter Cap",
-  "item.extremesnowadventures.whitewintercoat": "White Winter Coat",
-  "item.extremesnowadventures.whitewinterpants": "White Winter Pants",
-  "item.extremesnowadventures.whitewinterboots": "White Winter Boots"
+  "item.extremesnowadventures.winter_helmet": "Winter Helmet",
+  "item.extremesnowadventures.winter_chestplate": "Winter Chestplate",
+  "item.extremesnowadventures.winter_leggings": "Winter Leggings",
+  "item.extremesnowadventures.winter_boots": "Winter Boots"
 }
