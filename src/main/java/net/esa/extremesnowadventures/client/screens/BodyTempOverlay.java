@@ -1,21 +1,18 @@
-
 package net.esa.extremesnowadventures.client.screens;
 
+import net.esa.extremesnowadventures.procedures.*;
 import net.minecraft.client.gui.GuiComponent;
-import org.checkerframework.checker.units.qual.h;
-
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.client.event.RenderGuiEvent;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.Minecraft;
-
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.api.distmarker.Dist;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.platform.GlStateManager;
 
@@ -32,54 +29,185 @@ public class BodyTempOverlay {
 		double y = 0;
 		double z = 0;
 		Player entity = Minecraft.getInstance().player;
-		if (entity != null) {
+
+		if (entity != null && !entity.isCreative() && !entity.isSpectator()) {
 			world = entity.level;
 			x = entity.getX();
 			y = entity.getY();
 			z = entity.getZ();
+
+			RenderSystem.disableDepthTest();
+			RenderSystem.depthMask(false);
+			RenderSystem.enableBlend();
+			RenderSystem.setShader(GameRenderer::getPositionTexShader);
+			RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+			RenderSystem.setShaderColor(1, 1, 1, 1);
+
+			if (BodyTempCold1DisplayProcedure.execute(entity)) {
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+			}
+
+			if (BodyTempCold2DisplayProcedure.execute(entity)) {
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+			}
+
+			if (BodyTempCold3DisplayProcedure.execute(entity)) {
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+			}
+
+			if (BodyTempCold4DisplayProcedure.execute(entity)) {
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+			}
+
+			if (BodyTempCold5DisplayProcedure.execute(entity)) {
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
+
+				RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
+				GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
+			}
+
+			RenderSystem.depthMask(true);
+			RenderSystem.defaultBlendFunc();
+			RenderSystem.enableDepthTest();
+			RenderSystem.disableBlend();
+			RenderSystem.setShaderColor(1, 1, 1, 1);
 		}
-		RenderSystem.disableDepthTest();
-		RenderSystem.depthMask(false);
-		RenderSystem.enableBlend();
-		RenderSystem.setShader(GameRenderer::getPositionTexShader);
-		RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-		RenderSystem.setShaderColor(1, 1, 1, 1);
-		if (true) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 0, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 9, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 18, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 27, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 54, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 63, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 72, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_blank.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 81, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_hot.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 45, posY + 68, 0, 0, 8, 8, 8, 8);
-
-			RenderSystem.setShaderTexture(0, new ResourceLocation("extremesnowadventures:textures/screens/temp/temp_cold.png"));
-			GuiComponent.blit(event.getPoseStack(), posX + 36, posY + 68, 0, 0, 8, 8, 8, 8);
-
-		}
-		RenderSystem.depthMask(true);
-		RenderSystem.defaultBlendFunc();
-		RenderSystem.enableDepthTest();
-		RenderSystem.disableBlend();
-		RenderSystem.setShaderColor(1, 1, 1, 1);
 	}
 }

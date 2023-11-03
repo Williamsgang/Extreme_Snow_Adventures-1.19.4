@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class SnowyDirtBlock extends Block {
     public SnowyDirtBlock() {
-        super(BlockBehaviour.Properties.of(Material.GRASS)
+        super(BlockBehaviour.Properties.of(Material.DIRT)
                 .sound(new ForgeSoundType(1.0f, 1.0f,
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.rooted_dirt.break")),
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.snow.step")),

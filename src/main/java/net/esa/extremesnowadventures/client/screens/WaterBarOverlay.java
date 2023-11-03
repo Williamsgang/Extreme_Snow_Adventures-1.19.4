@@ -26,7 +26,7 @@ public class WaterBarOverlay {
         int posY = h / 2;
         Player entity = Minecraft.getInstance().player;
 
-        if (entity != null && !entity.isCreative()) {
+        if (entity != null && !entity.isCreative() && !entity.isSpectator()) {
             Level world = entity.level;
             double x = entity.getX();
             double y = entity.getY();

@@ -1,13 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "extremesnowadventures:block/dirt",
-    "up": "extremesnowadventures:block/snow",
-    "north": "extremesnowadventures:block/grass_block_snow",
-    "east": "extremesnowadventures:block/grass_block_snow",
-    "south": "extremesnowadventures:block/grass_block_snow",
-    "west": "extremesnowadventures:block/grass_block_snow",
-    "particle": "extremesnowadventures:block/dirt"
-  },
-  "render_type": "solid"
+    "down": "minecraft:block/dirt",
+    "up": "minecraft:block/snow",
+    "north": "minecraft:block/grass_block_snow",
+    "east": "minecraft:block/grass_block_snow",
+    "south": "minecraft:block/grass_block_snow",
+    "west": "minecraft:block/grass_block_snow",
+    "particle": "minecraft:block/dirt"
+  }
 }
