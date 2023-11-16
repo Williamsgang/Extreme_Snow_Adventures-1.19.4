@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/wintercoat",
-    "layer1": "minecraft:item/wintercoat_overlay"
-  }
-}

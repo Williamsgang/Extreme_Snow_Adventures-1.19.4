@@ -27,9 +27,10 @@ public class BodyTempDisplayOverlayIngameProcedure {
 	}
 
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
+		BlockPos pos = new BlockPos(entity.getX(), entity.getY(), entity.getZ());
 		if (entity == null)
 			return;
-		if (world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("the_north"))) {
+		if (world.getBiome(pos).is(new ResourceLocation("the_north"))) {
 			{
 				double _setval = (entity.getCapability(ModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new ModVariables.PlayerVariables())).body_temp - 0.05;
 				entity.getCapability(ModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

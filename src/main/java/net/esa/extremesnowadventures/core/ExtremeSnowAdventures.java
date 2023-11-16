@@ -1,20 +1,16 @@
 package net.esa.extremesnowadventures.core;
 
 import com.mojang.logging.LogUtils;
-import net.esa.extremesnowadventures.blocks.ModBlocks;
-import net.esa.extremesnowadventures.entity.ModEntities;
+import net.esa.extremesnowadventures.common.biomes.ModBiomeRegions;
+import net.esa.extremesnowadventures.common.biomes.SurfaceRuleData;
 import net.esa.extremesnowadventures.entity.rendering.FluffyRenderer;
 import net.esa.extremesnowadventures.entity.rendering.YetiRenderer;
-import net.esa.extremesnowadventures.init.ModMobEffects;
-import net.esa.extremesnowadventures.init.ModPotions;
-import net.esa.extremesnowadventures.items.ModCreativeTab;
-import net.esa.extremesnowadventures.items.ModItems;
+import net.esa.extremesnowadventures.init.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +23,8 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -57,6 +55,10 @@ public class ExtremeSnowAdventures {
         // Register the blocks
         ModBlocks.register(modEventBus);
 
+        // Register the biomes
+        ModBiomes.BIOMES.register(modEventBus);
+        ModBiomes.registerBiomes();
+
         // Register mob effects
         ModMobEffects.register(modEventBus);
 
@@ -68,10 +70,6 @@ public class ExtremeSnowAdventures {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
     }
 
     private static final String PROTOCOL_VERSION = "1";
@@ -107,33 +105,11 @@ public class ExtremeSnowAdventures {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            Regions.register(new ModBiomeRegions(new ResourceLocation(MOD_ID, "overworld"), 2));
 
-    }
-
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == ModCreativeTab.ESA_ITEM_TAB) {
-            event.accept(ModItems.BLUE_PROCESSED_WOOL);
-            event.accept(ModItems.BLACK_PROCESSED_WOOL);
-            event.accept(ModItems.BROWN_PROCESSED_WOOL);
-            event.accept(ModItems.CYAN_PROCESSED_WOOL);
-            event.accept(ModItems.GRAY_PROCESSED_WOOL);
-            event.accept(ModItems.GREEN_PROCESSED_WOOL);
-            event.accept(ModItems.LIGHT_BLUE_PROCESSED_WOOL);
-            event.accept(ModItems.LIGHT_GRAY_PROCESSED_WOOL);
-            event.accept(ModItems.LIGHT_PINK_PROCESSED_WOOL);
-            event.accept(ModItems.LIME_PROCESSED_WOOL);
-            event.accept(ModItems.MAGENTA_PROCESSED_WOOL);
-            event.accept(ModItems.ORANGE_PROCESSED_WOOL);
-            event.accept(ModItems.PURPLE_PROCESSED_WOOL);
-            event.accept(ModItems.RED_PROCESSED_WOOL);
-            event.accept(ModItems.WHITE_PROCESSED_WOOL);
-            event.accept(ModItems.YELLOW_PROCESSED_WOOL);
-            event.accept(ModItems.HOT_COCOA);
-            event.accept(ModItems.WHITE_WINTER_CAP);
-            event.accept(ModItems.WHITE_WINTER_COAT);
-            event.accept(ModItems.WHITE_WINTER_PANTS);
-            event.accept(ModItems.WHITE_WINTER_BOOTS);
-        }
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, SurfaceRuleData.makeRules());
+        });
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

@@ -55,7 +55,6 @@ public class FluffyEntity extends Monster {
         }
     }
 
-    @Override
     protected void updateWalkAnimation(float pPartialTick) {
         float f;
         if (this.getPose() == Pose.STANDING) {
@@ -63,7 +62,7 @@ public class FluffyEntity extends Monster {
         } else {
             f = 0f;
         }
-        this.walkAnimation.update(f, 0.2f);
+//        this.walkAnimation.update(f, 0.2f);
     }
 
     @Override
